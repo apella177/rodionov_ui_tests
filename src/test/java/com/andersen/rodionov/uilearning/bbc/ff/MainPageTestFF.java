@@ -24,6 +24,8 @@ public class MainPageTestFF {
     public void firstTest() throws InterruptedException {
         driver.get("https://www.bbc.com/");
         mainPage.init(driver);
+        System.out.println(mainPage.isSearchDisplayed());
+        System.out.println(mainPage.isSearchEnabled());
         mainPage.clickOnSearch();
         mainPage.sendKeysOnSearch("USA");
 

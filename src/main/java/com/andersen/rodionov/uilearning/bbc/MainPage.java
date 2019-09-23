@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 public class MainPage {
     @FindBy(css = "#orb-search-q")
     private WebElement search;
-    @FindBy(css = "#orb-nav-links li:nth-child(2)")
+    @FindBy(css = "#orb-nav-links li:nth-child(3)")
     private WebElement navigelement;
 
     public void clickOnSearch() {
@@ -27,10 +27,11 @@ public class MainPage {
         PageFactory.initElements(driver, this);
     }
 
-    public boolean isSearchDispalyed () {
+    public boolean isSearchDisplayed() {
         return search.isDisplayed();
     }
-    public boolean isSearchEnabled () {
+
+    public boolean isSearchEnabled() {
         return search.isEnabled();
     }
 }
