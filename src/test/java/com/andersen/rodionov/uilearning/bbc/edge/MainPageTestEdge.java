@@ -30,7 +30,7 @@ public class MainPageTestEdge {
         mainPage.sendKeysOnSearch("USA");
 
         Thread.sleep(5000);
-        mainPage.clickElement();
+        mainPage.clickNavigateElement();
         Thread.sleep(3000);
     }
 
