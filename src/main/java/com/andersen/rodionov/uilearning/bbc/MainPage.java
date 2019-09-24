@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class MainPage {
-    @FindBy(css = "#orb-search-q")
+    @FindBy ( css = "#orb-search-q")
     private WebElement searchBox;
 
     @FindBy(css = "#orb-nav-links li:nth-child(3)")
