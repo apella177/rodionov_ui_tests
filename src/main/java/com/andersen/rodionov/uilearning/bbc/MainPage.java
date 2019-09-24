@@ -4,18 +4,28 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-    public class MainPage {
-    @FindBy (css = "#orb-search-q")
+public class MainPage {
+    @FindBy(css = "#orb-search-q")
     private WebElement searchBox;
-    
-    @FindBy (css = "#orb-nav-links li:nth-child(3)")
+
+    @FindBy(css = "#orb-nav-links li:nth-child(3)")
     private WebElement newsButton;
 
-        public MainPage() {
-        }
+    public MainPage() {
+    }
 
-        public void clickSearchBox() {
+    public void waitUntilPageLoaded(WebDriver driver) {
+        try {
+            new WebDriverWait(driver, 3);
+            init(driver);
+        } catch (Exception e) {
+            System.out.println("Ошибка загрузки страницы");
+        }
+    }
+
+    public void clickSearchBox() {
         searchBox.click();
     }
 
@@ -27,7 +37,7 @@ import org.openqa.selenium.support.PageFactory;
         newsButton.click();
     }
 
-    public void init(WebDriver driver) {
+    private void init(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
 
