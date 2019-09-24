@@ -10,21 +10,21 @@ import org.openqa.selenium.support.PageFactory;
     private WebElement searchBox;
     
     @FindBy (css = "#orb-nav-links li:nth-child(3)")
-    private WebElement navigateBlock;
+    private WebElement newsButton;
 
         public MainPage() {
         }
 
-        public void clickOnSearch() {
+        public void clickSearchBox() {
         searchBox.click();
     }
 
-    public void sendKeysOnSearch(String text) {
+    public void sendKeysToSearchBox(String text) {
         searchBox.sendKeys(text);
     }
 
-    public void clickNavigateElement() {
-        navigateBlock.click();
+    public void clickNewsButton() {
+        newsButton.click();
     }
 
     public void init(WebDriver driver) {

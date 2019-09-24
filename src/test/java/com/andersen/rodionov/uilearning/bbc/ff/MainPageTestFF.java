@@ -26,11 +26,11 @@ public class MainPageTestFF {
         mainPage.init(driver);
         System.out.println(mainPage.isSearchDisplayed());
         System.out.println(mainPage.isSearchEnabled());
-        mainPage.clickOnSearch();
-        mainPage.sendKeysOnSearch("USA");
+        mainPage.clickSearchBox();
+        mainPage.sendKeysToSearchBox("USA");
 
         Thread.sleep(5000);
-        mainPage.clickNavigateElement();
+        mainPage.clickNewsButton();
         Thread.sleep(3000);
     }
 
