@@ -7,10 +7,10 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class MainPage {
-    @FindBy ( css = "#orb-search-q")
-    private WebElement searchBox;
+    @FindBy(css = "#orb-search-q")
+    private WebElement searchInput;
 
-    @FindBy(css = "#orb-nav-links li:nth-child(3)")
+    @FindBy(css = "#orb-nav-links li:nth-child(2)")
     private WebElement newsButton;
 
     public MainPage() {
@@ -18,19 +18,17 @@ public class MainPage {
 
     public void waitUntilPageLoaded(WebDriver driver) {
         try {
-            new WebDriverWait(driver, 3);
+            new WebDriverWait(driver, 5);
             init(driver);
-        } catch (Exception e) {
-            System.out.println("Ошибка загрузки страницы");
-        }
+        } catch (Exception e) {}
     }
 
-    public void clickSearchBox() {
-        searchBox.click();
+    public void clickSearchInput() {
+        searchInput.click();
     }
 
-    public void sendKeysToSearchBox(String text) {
-        searchBox.sendKeys(text);
+    public void setToSearchInput(String text) {
+        searchInput.sendKeys(text);
     }
 
     public void clickNewsButton() {
@@ -42,11 +40,7 @@ public class MainPage {
     }
 
     public boolean isSearchDisplayed() {
-        return searchBox.isDisplayed();
-    }
-
-    public boolean isSearchEnabled() {
-        return searchBox.isEnabled();
+        return searchInput.isDisplayed();
     }
 }
 

@@ -20,19 +20,24 @@ public class MainPageEdgeTest {
 
         mainPage = new MainPage();
         driver = DriverEdge.getInstance();
-        System.out.println("Запуск теста");
     }
-
     @Test
-    public void firstTest() throws InterruptedException {
+    public void checkSearchInput() {
+
         driver.get("https://www.bbc.com/");
         mainPage.waitUntilPageLoaded(driver);
 
         Assert.assertTrue(mainPage.isSearchDisplayed(), "Строка поиска не отображается");
-        Assert.assertTrue(mainPage.isSearchEnabled(), "Строка поиска неактивна");
 
-        mainPage.clickSearchBox();
-        mainPage.sendKeysToSearchBox("USA");
+        mainPage.clickSearchInput();
+        mainPage.setToSearchInput("USA");
+    }
+
+    @Test
+    public void clickNewsButton() {
+
+        driver.get("https://www.bbc.com/");
+        mainPage.waitUntilPageLoaded(driver);
 
         mainPage.clickNewsButton();
         newsPage.waitUntilPageLoaded(driver);
@@ -41,7 +46,6 @@ public class MainPageEdgeTest {
     @AfterTest
     public void close() {
         driver.quit();
-        System.out.println("Окончание теста");
     }
 
 }
