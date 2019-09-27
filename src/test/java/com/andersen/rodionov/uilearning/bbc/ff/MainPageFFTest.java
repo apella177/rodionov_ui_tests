@@ -16,7 +16,7 @@ public class MainPageFFTest {
 
     @BeforeTest
     public void setUp() {
-        System.setProperty("webdriver.gecko.driver", "C:\\geckodriver.exe");
+        System.setProperty("webdriver.gecko.driver", "src\\main\\resources\\geckodriver.exe");
 
         mainPage = new MainPage();
         newsPage = new NewsPage();
@@ -29,9 +29,8 @@ public class MainPageFFTest {
         driver.get("https://www.bbc.com/");
         mainPage.waitUntilPageLoaded(driver);
 
-        Assert.assertTrue(mainPage.isSearchDisplayed(), "Строка поиска не отображается");
+        Assert.assertTrue(mainPage.isDisplayedSearchField(), "Строка поиска не отображается");
 
-        mainPage.clickSearchInput();
         mainPage.setToSearchInput("USA");
     }
 

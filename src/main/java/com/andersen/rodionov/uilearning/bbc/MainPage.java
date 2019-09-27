@@ -13,21 +13,16 @@ public class MainPage {
     @FindBy(css = "#orb-nav-links li:nth-child(2)")
     private WebElement newsButton;
 
-    public MainPage() {
-    }
 
     public void waitUntilPageLoaded(WebDriver driver) {
         try {
             new WebDriverWait(driver, 5);
             init(driver);
-        } catch (Exception e) {}
-    }
-
-    public void clickSearchInput() {
-        searchInput.click();
+        } catch (Exception ignore) {}
     }
 
     public void setToSearchInput(String text) {
+        searchInput.click();
         searchInput.sendKeys(text);
     }
 
@@ -39,8 +34,9 @@ public class MainPage {
         PageFactory.initElements(driver, this);
     }
 
-    public boolean isSearchDisplayed() {
+    public boolean isDisplayedSearchField() {
         return searchInput.isDisplayed();
     }
 }
+
 

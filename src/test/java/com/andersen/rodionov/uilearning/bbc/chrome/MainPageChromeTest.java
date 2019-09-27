@@ -16,7 +16,7 @@ public class MainPageChromeTest {
 
     @BeforeTest
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
 
         mainPage = new MainPage();
         newsPage = new NewsPage();
@@ -29,9 +29,8 @@ public class MainPageChromeTest {
         driver.get("https://www.bbc.com/");
         mainPage.waitUntilPageLoaded(driver);
 
-        Assert.assertTrue(mainPage.isSearchDisplayed(), "Строка поиска не отображается");
+        Assert.assertTrue(mainPage.isDisplayedSearchField(), "Строка поиска не отображается");
 
-        mainPage.clickSearchInput();
         mainPage.setToSearchInput("USA");
     }
 

@@ -16,9 +16,10 @@ public class MainPageEdgeTest {
 
     @BeforeTest
     public void setUp() {
-        System.setProperty("webdriver.edge.driver", "C:\\msedgedriver.exe");
+        System.setProperty("webdriver.edge.driver", "src\\main\\resources\\msedgedriver.exe");
 
         mainPage = new MainPage();
+        newsPage = new NewsPage();
         driver = DriverEdge.getInstance();
     }
     @Test
@@ -27,9 +28,8 @@ public class MainPageEdgeTest {
         driver.get("https://www.bbc.com/");
         mainPage.waitUntilPageLoaded(driver);
 
-        Assert.assertTrue(mainPage.isSearchDisplayed(), "Строка поиска не отображается");
+        Assert.assertTrue(mainPage.isDisplayedSearchField(), "Строка поиска не отображается");
 
-        mainPage.clickSearchInput();
         mainPage.setToSearchInput("USA");
     }
 
