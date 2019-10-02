@@ -1,5 +1,4 @@
 package com.andersen.rodionov.uilearning.bbc.chrome;
-
 import com.andersen.rodionov.uilearning.bbc.MainPage;
 import com.andersen.rodionov.uilearning.bbc.NewsPage;
 import com.andersen.rodionov.uilearning.drivers.DriverChrome;
