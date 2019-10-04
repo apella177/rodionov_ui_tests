@@ -19,7 +19,7 @@ public class MainPageChromeTest2 {
         waitElementIsEnabled(driver.findElement(By.cssSelector("#orb-search-q")));
         waitElementIsDisplayed(driver.findElement(By.cssSelector("#orb-search-q")));
 
-        driver.findElement(By.cssSelector("#orb-search-q")).isDisplayed();
+
         driver.findElement(By.cssSelector("#orb-search-q")).clear();
         driver.findElement(By.cssSelector("#orb-search-q")).click();
         driver.findElement(By.cssSelector("#orb-search-q")).sendKeys("USA");
@@ -42,15 +42,8 @@ public class MainPageChromeTest2 {
         int maxCount = 50;
         int currentCount = 0;
         while (!element.isEnabled() && currentCount < maxCount) {
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            Thread.sleep(100);
             currentCount++;
-        }
-        if (currentCount >= maxCount) {
-            throw new Exception("Элемент не доступен");
         }
     }
 
@@ -58,15 +51,8 @@ public class MainPageChromeTest2 {
         int maxCount = 50;
         int currentCount = 0;
         while (!element.isDisplayed() && currentCount < maxCount) {
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            Thread.sleep(100);
             currentCount++;
-        }
-        if (currentCount >= maxCount) {
-            throw new Exception("Элемент не найден");
         }
     }
 }
