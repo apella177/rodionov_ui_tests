@@ -27,9 +27,10 @@ public class MainPageChromeTest2 {
     public void checkSearchInput() throws Exception {
 
         waitElementIsEnabled(driver.findElement(By.cssSelector("#orb-search-q")));
-        Assert.assertTrue(driver.findElement(By.cssSelector("#orb-search-q")).isDisplayed(),"Элемент не активен");
         waitElementIsDisplayed(driver.findElement(By.cssSelector("#orb-search-q")));
 
+        Assert.assertTrue(driver.findElement(By.cssSelector("#orb-search-q")).isDisplayed(),"Элемент не активен");
+        Assert.assertTrue(driver.findElement(By.cssSelector("#orb-search-q")).isEnabled(),"Элемент не доступен");
 
         driver.findElement(By.cssSelector("#orb-search-q")).clear();
         driver.findElement(By.cssSelector("#orb-search-q")).click();
