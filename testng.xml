@@ -7,7 +7,7 @@
             </run>
         </groups>
         <classes>
-            <class name="com.andersen.rodionov.uilearning.bbc.chrome.MainPageChromeTest2"/>
+            <class name="com.andersen.rodionov.uilearning.bbc.chrome.MainPageTests"/>
         </classes>
     </test>
 </suite>

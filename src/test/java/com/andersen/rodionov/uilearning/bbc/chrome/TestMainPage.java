@@ -9,7 +9,7 @@ import org.testng.annotations.BeforeGroups;
 import org.testng.annotations.Test;
 import org.testng.Assert;
 
-public class MainPageChromeTest2 {
+public class TestMainPage {
 
     private WebDriver driver;
 
@@ -18,9 +18,9 @@ public class MainPageChromeTest2 {
 
         System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
         driver = new ChromeDriver();
-
         driver.get("https://www.bbc.com");
     }
+
 
     @Test(groups = {"smokeTests", "regressionTests"})
     public void checkSearchInput() throws Exception {
@@ -28,8 +28,8 @@ public class MainPageChromeTest2 {
         waitElementIsDisplayed(driver.findElement(By.cssSelector("#orb-search-q")));
         waitElementIsEnabled(driver.findElement(By.cssSelector("#orb-search-q")));
 
-        Assert.assertTrue(driver.findElement(By.cssSelector("#orb-search-q")).isDisplayed(),"Элемент не доступен");
-        Assert.assertTrue(driver.findElement(By.cssSelector("#orb-search-q")).isEnabled(),"Элемент не активен");
+        Assert.assertTrue(driver.findElement(By.cssSelector("#orb-search-q")).isDisplayed(), "Элемент не доступен");
+        Assert.assertTrue(driver.findElement(By.cssSelector("#orb-search-q")).isEnabled(), "Элемент не активен");
 
         driver.findElement(By.cssSelector("#orb-search-q")).clear();
         driver.findElement(By.cssSelector("#orb-search-q")).click();
