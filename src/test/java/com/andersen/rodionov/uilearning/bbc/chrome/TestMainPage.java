@@ -4,16 +4,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterGroups;
-import org.testng.annotations.BeforeGroups;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import org.testng.Assert;
 
 public class TestMainPage {
 
     private WebDriver driver;
 
-    @BeforeGroups(groups = {"smokeTests", "regressionTests"})
+    @BeforeTest(groups = {"smokeTests", "regressionTests"})
     public void setInit() {
 
         System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
@@ -61,8 +59,9 @@ public class TestMainPage {
         }
     }
 
-    @AfterGroups(groups = {"smokeTests", "regressionTests"})
+    @AfterTest(groups = {"smokeTests", "regressionTests"})
     public void close() {
+
         driver.quit();
     }
 }
