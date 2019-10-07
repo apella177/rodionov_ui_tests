@@ -4,38 +4,42 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.AfterGroups;
+import org.testng.annotations.BeforeGroups;
 import org.testng.annotations.Test;
+
 
 public class MainPageChromeTest2 {
 
-    @Test
+    private WebDriver driver;
+
+
+    @BeforeGroups(groups = {"smokeTests", "regressionTests"})
+    public void setInit() {
+        System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
+        driver = new ChromeDriver();
+        driver.get("https://www.bbc.com");
+    }
+
+
+    @Test(groups = {"smokeTests", "regressionTests"})
     public void checkSearchInput() throws Exception {
 
-        System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
-
-        driver.get("https://www.bbc.com");
-
         waitElementIsEnabled(driver.findElement(By.cssSelector("#orb-search-q")));
+        Assert.assertTrue(driver.findElement(By.cssSelector("#orb-search-q")).isDisplayed(),"Элемент не активен");
         waitElementIsDisplayed(driver.findElement(By.cssSelector("#orb-search-q")));
 
 
         driver.findElement(By.cssSelector("#orb-search-q")).clear();
         driver.findElement(By.cssSelector("#orb-search-q")).click();
         driver.findElement(By.cssSelector("#orb-search-q")).sendKeys("USA");
-        driver.quit();
     }
 
-    @Test
+    @Test(groups = {"smokeTests"})
     public void clickNewsButton() {
 
-        System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
-
-        driver.get("https://www.bbc.com");
-
         driver.findElement(By.cssSelector("#orb-nav-links li:nth-child(2)")).click();
-        driver.quit();
     }
 
     private static void waitElementIsEnabled(WebElement element) throws Exception {
@@ -54,5 +58,11 @@ public class MainPageChromeTest2 {
             Thread.sleep(100);
             currentCount++;
         }
+    }
+
+    @AfterGroups(groups = {"smokeTests", "regressionTests"})
+    public void close() {
+
+        driver.quit();
     }
 }
