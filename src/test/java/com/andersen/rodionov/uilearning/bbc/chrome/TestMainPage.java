@@ -23,7 +23,7 @@ public class TestMainPage {
 
 
     @Test(groups = {"smokeTests", "regressionTests"})
-    public void testcheckSearchInput() throws Exception {
+    public void testCheckSearchInput() throws Exception {
 
         waitElementIsDisplayed(driver.findElement(By.cssSelector("#orb-search-q")));
         waitElementIsEnabled(driver.findElement(By.cssSelector("#orb-search-q")));
@@ -38,7 +38,7 @@ public class TestMainPage {
     }
 
     @Test(groups = {"smokeTests"})
-    public void testclickNewsButton() {
+    public void testClickNewsButton() {
 
         driver.findElement(By.cssSelector("#orb-nav-links li:nth-child(2)")).click();
     }
