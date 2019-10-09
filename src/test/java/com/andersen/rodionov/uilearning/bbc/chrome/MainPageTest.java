@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
 import org.testng.Assert;
 
-public class TestMainPage {
+public class MainPageTest {
 
     private WebDriver driver;
 

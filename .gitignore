@@ -1,4 +1,5 @@
 rodionov_ui_tests.iml
 .idea
 target
+lib
 *.class

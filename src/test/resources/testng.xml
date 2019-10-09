@@ -1,13 +1,13 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="regressionSuite">
     <test name="C:/Users/Anduser/Desktop/Andauto/rodionov_ui_tests/src/test/java/com/andersen/rodionov/uilearning/bbc/chrome/MainPageChromeTest2.java">
-        <groups>
-            <run>
-                <include name="regressionTests"/>
-            </run>
-        </groups>
         <classes>
-            <class name="com.andersen.rodionov.uilearning.bbc.chrome.TestMainPage"/>
+            <class name="com.andersen.rodionov.uilearning.bbc.chrome.MainPageTest">
+                <methods>
+                    <include name="testCheckSearchInput"></include>
+                    <include name="testClickNewsButton"></include>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>
