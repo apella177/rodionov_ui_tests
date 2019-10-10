@@ -42,7 +42,7 @@ public class AssertionsTests {
     }
 
     @Test
-    public void testSoftAssertNumbers() {
+    public void testSoftAssert() {
 
         SoftAssert softAssert = new SoftAssert();
 
