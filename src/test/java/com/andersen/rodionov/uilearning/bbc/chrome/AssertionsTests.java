@@ -27,7 +27,7 @@ public class AssertionsTests {
     }
 
     @Test
-    public void testAssertArray() {
+    public void testAssertArrays() {
         Integer[] array1 = {12, 34, 56, 77};
         Integer[] array2 = {77, 56, 34, 12};
         Assert.assertEqualsNoOrder(array1, array2, "Значения массивов не совпадают");
