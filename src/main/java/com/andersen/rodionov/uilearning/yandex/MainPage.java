@@ -21,14 +21,13 @@ class MainPage {
     @FindBy(css = ".home-tabs__more")
     private List<WebElement> moreElements;
 
+    private final WebDriver driver;
 
     void init(final WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
 
-    private final WebDriver driver;
-
-    public MainPage(WebDriver driver) {
+    MainPage(WebDriver driver) {
         this.driver = driver;
     }
 

@@ -15,14 +15,13 @@ class GeoLocationPage {
     @FindBy(css = ".popup__items li:first-child")
     private WebElement firstElementGeoList;
 
+    private final WebDriver driver;
 
     void init(final WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
 
-    private final WebDriver driver;
-
-    public GeoLocationPage(WebDriver driver) {
+    GeoLocationPage(WebDriver driver) {
         this.driver = driver;
     }
 
