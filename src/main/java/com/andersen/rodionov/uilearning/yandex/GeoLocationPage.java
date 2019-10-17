@@ -20,7 +20,7 @@ class GeoLocationPage {
         this.driver = driver;
     }
 
-    void init(final WebDriver driver) {
+    void init(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
 
