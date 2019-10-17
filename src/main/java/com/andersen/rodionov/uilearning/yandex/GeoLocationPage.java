@@ -8,27 +8,31 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 class GeoLocationPage {
-    @FindBy(css = "#city__front-input")
+    private WebDriver driver;
+
+    @FindBy (css = "#city__front-input")
     private WebElement cityInput;
-    @FindBy(css = ".popup__items li:first-child")
+
+    @FindBy (css = ".popup__items li:first-child")
     private WebElement firstElementGeoList;
 
+    public GeoLocationPage (WebDriver driver) {
+        this.driver = driver;
 
-    void clickFirstElementGeoList(WebDriver driver) {
-        init(driver);
+    }
+    void clickFirstElementGeoList() {
+        initPageElements();
         new WebDriverWait(driver, 1).until(ExpectedConditions.elementToBeClickable(firstElementGeoList));
         firstElementGeoList.click();
     }
 
-    void init(WebDriver driver) {
-        PageFactory.initElements(driver, this);
+    private void initPageElements() { PageFactory.initElements(driver, this);
     }
 
-    void clearCityInput() {
-        cityInput.clear();
-    }
 
     void setGeoLocation(String city) {
+        initPageElements();
+        cityInput.clear();
         cityInput.sendKeys(city);
     }
 }

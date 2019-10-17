@@ -1,58 +1,44 @@
 package com.andersen.rodionov.uilearning.yandex;
 
-import com.andersen.rodionov.uilearning.drivers.DriverChrome;
-import org.openqa.selenium.WebDriver;
+import com.andersen.rodionov.uilearning.BaseTest;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class TestYandexPage {
+public class TestYandexPage extends BaseTest {
 
-    private WebDriver driver;
     private MainPage mainPage;
     private GeoLocationPage geoLocationPage;
 
     @BeforeTest
     public void setInit() {
+        super.setInit();
+        mainPage = new MainPage(driver);
+        geoLocationPage = new GeoLocationPage(driver);
 
-        mainPage = new MainPage();
-        geoLocationPage = new GeoLocationPage();
-
-        driver = DriverChrome.getInstance();
         driver.get("https://yandex.ru");
     }
 
     @Test
     public void testComparisonMoreMenu() {
-        mainPage.init(driver);
+
         mainPage.clickGeoLocation();
 
-        geoLocationPage.init(driver);
-        geoLocationPage.clearCityInput();
         geoLocationPage.setGeoLocation("Лондон");
-        geoLocationPage.clickFirstElementGeoList(driver);
+        geoLocationPage.clickFirstElementGeoList();
 
-        mainPage.init(driver);
-        mainPage.clickMoreButton(driver);
-        List<String> elements1 = mainPage.getMoreElements(driver);
+        mainPage.clickMoreButton();
+        List<String> elements1 = mainPage.getMoreElements();
         mainPage.clickGeoLocation();
 
-        geoLocationPage.init(driver);
-        geoLocationPage.clearCityInput();
         geoLocationPage.setGeoLocation("Париж");
-        geoLocationPage.clickFirstElementGeoList(driver);
+        geoLocationPage.clickFirstElementGeoList();
 
-        mainPage.init(driver);
-        mainPage.clickMoreButton(driver);
-        List<String> elements2 = mainPage.getMoreElements(driver);
+        mainPage.clickMoreButton();
+        List<String> elements2 = mainPage.getMoreElements();
 
         Assert.assertEquals(elements1, elements2, "Коллекции не совпадают");
-    }
-
-    @AfterTest
-    public void close() { driver.quit();
     }
 }
