@@ -38,5 +38,3 @@ public class MainPage {
         return searchInput.isDisplayed();
     }
 }
-
-

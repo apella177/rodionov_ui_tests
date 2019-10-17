@@ -41,7 +41,7 @@ public class AssertionsTests {
         Assert.assertEquals(array1, array2, "Значения массивов не совпадают");
     }
 
-    @Test
+    @Test (enabled = false)
     public void testSoftAssert() {
 
         SoftAssert softAssert = new SoftAssert();

@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 class MainPage {
-    private WebDriver driver;
 
     @FindBy(className = "geolink__reg")
     private WebElement geoLocation;
@@ -22,12 +21,14 @@ class MainPage {
     @FindBy(css = ".home-tabs__more")
     private List<WebElement> moreElements;
 
-    public MainPage(WebDriver driver) {
-        this.driver = driver;
-    }
+    private final WebDriver driver;
 
     void init(final WebDriver driver) {
         PageFactory.initElements(driver, this);
+    }
+
+    public MainPage(WebDriver driver) {
+        this.driver = driver;
     }
 
     void clickMoreButton() {

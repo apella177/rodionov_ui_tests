@@ -8,7 +8,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 class GeoLocationPage {
-    private WebDriver driver;
 
     @FindBy(css = "#city__front-input")
     private WebElement cityInput;
@@ -16,12 +15,14 @@ class GeoLocationPage {
     @FindBy(css = ".popup__items li:first-child")
     private WebElement firstElementGeoList;
 
-    public GeoLocationPage(WebDriver driver) {
-        this.driver = driver;
-    }
+    private final WebDriver driver;
 
     void init(final WebDriver driver) {
         PageFactory.initElements(driver, this);
+    }
+
+    public GeoLocationPage(WebDriver driver) {
+        this.driver = driver;
     }
 
     void clickFirstElementGeoList() {
