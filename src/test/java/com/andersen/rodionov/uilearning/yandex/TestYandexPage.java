@@ -17,13 +17,14 @@ public class TestYandexPage extends BaseTest {
         super.setInit();
         mainPage = new MainPage(driver);
         geoLocationPage = new GeoLocationPage(driver);
-
-        driver.get("https://yandex.ru");
+        mainPage.init(driver);
+        geoLocationPage.init(driver);
     }
 
     @Test
     public void testComparisonMoreMenu() {
 
+        driver.get("https://yandex.ru");
         mainPage.clickGeoLocation();
 
         geoLocationPage.setGeoLocation("Лондон");
