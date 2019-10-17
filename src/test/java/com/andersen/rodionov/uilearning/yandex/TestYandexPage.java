@@ -15,8 +15,10 @@ public class TestYandexPage extends BaseTest {
     @BeforeTest
     public void setInit() {
         super.setInit();
+
         mainPage = new MainPage(driver);
         geoLocationPage = new GeoLocationPage(driver);
+
         mainPage.init(driver);
         geoLocationPage.init(driver);
     }
