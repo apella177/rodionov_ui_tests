@@ -16,7 +16,7 @@ public class GeoPage {
 
     private WebDriver driver;
 
-    protected void init(final WebDriver driver) {
+    public void init(final WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
 
