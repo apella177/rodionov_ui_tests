@@ -14,7 +14,7 @@ public class YandexTest extends BaseTest {
     private GeoPage geoPage;
 
     @BeforeClass
-    private void setInit() {
+    public void setInit() {
         yandexPage = PageFactory.initElements(driver, YandexPage.class);
         geoPage = PageFactory.initElements(driver, GeoPage.class);
     }
