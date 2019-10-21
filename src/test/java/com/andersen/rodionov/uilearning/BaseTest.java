@@ -9,12 +9,12 @@ public class BaseTest {
     protected WebDriver driver;
 
     @BeforeTest
-    public void setInit() {
+    protected void setInit() {
         driver = DriverChrome.getInstance();
     }
 
     @AfterTest
-    public void close() {
+    protected void close() {
         driver.quit();
     }
 }

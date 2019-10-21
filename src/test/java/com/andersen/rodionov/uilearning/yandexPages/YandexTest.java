@@ -30,16 +30,16 @@ public class YandexTest extends BaseTest {
         geoPage.clickFirstElementGeoList();
 
         yandexPage.clickMoreButton();
-        List<String> cclletionMoreMenuLondon = yandexPage.getMoreElementMenu();
+        List<String> colletionMoreMenuLondon = yandexPage.getMoreElementMenu();
         yandexPage.clickGeo();
 
         geoPage.setGeoLocation("Париж");
         geoPage.clickFirstElementGeoList();
 
         yandexPage.clickMoreButton();
-        List<String> cclletionMoreMenuParis = yandexPage.getMoreElementMenu();
+        List<String> colletionMoreMenuParis = yandexPage.getMoreElementMenu();
 
-        Assert.assertEquals(cclletionMoreMenuLondon, cclletionMoreMenuParis, "Коллекции не совпадают!");
+        Assert.assertEquals(colletionMoreMenuLondon, colletionMoreMenuParis, "Коллекции не совпадают!");
     }
 
 }

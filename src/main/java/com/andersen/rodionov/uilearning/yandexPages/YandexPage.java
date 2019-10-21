@@ -26,16 +26,16 @@ public class YandexPage {
         PageFactory.initElements(driver, this);
     }
 
-    void clickGeo() {
+    protected void clickGeo() {
         geoLocationButton.click();
     }
 
-    void clickMoreButton() {
+    protected void clickMoreButton() {
         new WebDriverWait(driver, 2).until(ExpectedConditions.elementToBeClickable(moreButton));
         moreButton.click();
     }
 
-    List<String> getMoreElementMenu() {
+    protected List<String> getMoreElementMenu() {
         new WebDriverWait(driver, 2).until(ExpectedConditions.visibilityOfAllElements(moreElementsPopup));
 
         List<String> elements = new ArrayList<>();
