@@ -20,13 +20,13 @@ public class GeoPage {
         PageFactory.initElements(driver, this);
     }
 
-    protected void setGeoLocation(String city) {
+    public void setGeoLocation(String city) {
         cityInput.click();
         cityInput.clear();
         cityInput.sendKeys(city);
     }
 
-    protected void clickFirstElementGeoList() {
+    public void clickFirstElementGeoList() {
         new WebDriverWait(driver, 2).until(ExpectedConditions.elementToBeClickable(firstElementPopup));
         firstElementPopup.click();
     }

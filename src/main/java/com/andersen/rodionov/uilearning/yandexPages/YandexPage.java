@@ -22,20 +22,20 @@ public class YandexPage {
 
     private WebDriver driver;
 
-    protected void init(final WebDriver driver) {
+    public void init(final WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
 
-    protected void clickGeo() {
+    public void clickGeo() {
         geoLocationButton.click();
     }
 
-    protected void clickMoreButton() {
+    public void clickMoreButton() {
         new WebDriverWait(driver, 2).until(ExpectedConditions.elementToBeClickable(moreButton));
         moreButton.click();
     }
 
-    protected List<String> getMoreElementMenu() {
+    public List<String> getMoreElementMenu() {
         new WebDriverWait(driver, 2).until(ExpectedConditions.visibilityOfAllElements(moreElementsPopup));
 
         List<String> elements = new ArrayList<>();
