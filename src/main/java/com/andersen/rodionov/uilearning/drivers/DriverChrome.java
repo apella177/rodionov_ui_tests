@@ -8,7 +8,6 @@ public class DriverChrome {
 
     private DriverChrome() {
     }
-
     public static WebDriver getInstance() {
         if (driver == null) {
             System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");

@@ -3,7 +3,7 @@ package com.andersen.rodionov.uilearning.yandexPages;
 import com.andersen.rodionov.uilearning.BaseTest;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.List;
@@ -13,10 +13,8 @@ public class YandexTest extends BaseTest {
     private YandexPage yandexPage;
     private GeoPage geoPage;
 
-    @BeforeTest
-    public void setInit() {
-        super.setInit();
-
+    @BeforeClass
+    public final void setInit() {
         yandexPage = PageFactory.initElements(driver, YandexPage.class);
         geoPage = PageFactory.initElements(driver, GeoPage.class);
     }
