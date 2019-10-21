@@ -9,7 +9,7 @@ public class BaseTest {
     protected static WebDriver driver;
 
     @BeforeClass
-    public void setInit() {
+    public void setup() {
         driver = DriverChrome.getInstance();
     }
 
