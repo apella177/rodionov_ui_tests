@@ -12,26 +12,22 @@ import java.util.List;
 
 public class YandexPage {
     @FindBy(css = ".geolink__reg")
-    private WebElement geoLocation;
+    private WebElement geoLocationButton;
 
     @FindBy(css = ".home-link.home-tabs__more-switcher")
     private WebElement moreButton;
 
     @FindBy(css = "div.home-tabs__more")
-    private List<WebElement> moreElementsMenu;
+    private List<WebElement> moreElementsPopup;
 
     private WebDriver driver;
 
-    YandexPage(WebDriver driver) {
-        this.driver = driver;
-    }
-
-    void init(WebDriver driver) {
+    public void init(final WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
 
     void clickGeo() {
-        geoLocation.click();
+        geoLocationButton.click();
     }
 
     void clickMoreButton() {
@@ -40,10 +36,10 @@ public class YandexPage {
     }
 
     List<String> getMoreElementMenu() {
-        new WebDriverWait(driver, 2).until(ExpectedConditions.visibilityOfAllElements(moreElementsMenu));
+        new WebDriverWait(driver, 2).until(ExpectedConditions.visibilityOfAllElements(moreElementsPopup));
 
         List<String> elements = new ArrayList<>();
-        for (WebElement moreMenu : moreElementsMenu)
+        for (WebElement moreMenu : moreElementsPopup)
             elements.add(moreMenu.getText());
         return elements;
     }
