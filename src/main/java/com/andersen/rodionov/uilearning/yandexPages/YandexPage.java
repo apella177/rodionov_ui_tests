@@ -22,7 +22,7 @@ public class YandexPage {
 
     private WebDriver driver;
 
-    public void init(final WebDriver driver) {
+    protected void init(final WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
 
