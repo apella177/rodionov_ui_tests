@@ -12,7 +12,7 @@ import java.util.List;
 
 public class YandexPage {
     @FindBy(css = ".geolink__reg")
-    private WebElement geo;
+    private WebElement geoLocation;
 
     @FindBy(css = ".home-link.home-tabs__more-switcher")
     private WebElement moreButton;
@@ -31,7 +31,7 @@ public class YandexPage {
     }
 
     void clickGeo() {
-        geo.click();
+        geoLocation.click();
     }
 
     void clickMoreButton() {

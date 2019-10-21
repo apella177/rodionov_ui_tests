@@ -41,7 +41,7 @@ public class YandexTest extends BaseTest {
         yandexPage.clickMoreButton();
         List<String> elements2 = yandexPage.getMoreElementMenu();
 
-        Assert.assertEquals(elements1, elements2, "Коллекции не совпадают");
+        Assert.assertEquals(elements1, elements2, "Коллекции не совпадают!");
     }
 
 }

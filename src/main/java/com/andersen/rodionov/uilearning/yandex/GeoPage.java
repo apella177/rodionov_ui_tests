@@ -31,7 +31,7 @@ public class GeoPage {
     }
 
     void clickFirstElementGeoList() {
-        new WebDriverWait(driver, 2).until(ExpectedConditions.elementToBeClickable(firstElementGeoList));
+        new WebDriverWait(driver, 3).until(ExpectedConditions.elementToBeClickable(firstElementGeoList));
         firstElementGeoList.click();
     }
 }
