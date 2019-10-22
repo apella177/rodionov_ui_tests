@@ -1,9 +1,8 @@
 package com.andersen.rodionov.uilearning.yandexPages;
 
-import org.openqa.selenium.WebDriver;
+import com.andersen.rodionov.uilearning.drivers.DriverChrome;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -20,23 +19,18 @@ public class YandexPage {
     @FindBy(css = "div.home-tabs__more")
     private List<WebElement> moreElementsPopup;
 
-    private WebDriver driver;
-
-    public void init(final WebDriver driver) {
-        PageFactory.initElements(driver, this);
-    }
 
     public void clickGeo() {
         geoLocationButton.click();
     }
 
     public void clickMoreButton() {
-        new WebDriverWait(driver, 2).until(ExpectedConditions.elementToBeClickable(moreButton));
+        new WebDriverWait(DriverChrome.getInstance(), 2).until(ExpectedConditions.elementToBeClickable(moreButton));
         moreButton.click();
     }
 
     public List<String> getMoreElementMenu() {
-        new WebDriverWait(driver, 2).until(ExpectedConditions.visibilityOfAllElements(moreElementsPopup));
+        new WebDriverWait(DriverChrome.getInstance(), 2).until(ExpectedConditions.visibilityOfAllElements(moreElementsPopup));
 
         List<String> elements = new ArrayList<>();
         for (WebElement moreMenu : moreElementsPopup)
