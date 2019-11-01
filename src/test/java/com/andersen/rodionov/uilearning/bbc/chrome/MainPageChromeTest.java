@@ -1,7 +1,6 @@
 package com.andersen.rodionov.uilearning.bbc.chrome;
 import com.andersen.rodionov.uilearning.bbc.MainPage;
 import com.andersen.rodionov.uilearning.bbc.NewsPage;
-import com.andersen.rodionov.uilearning.drivers.DriverChrome;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
@@ -19,7 +18,7 @@ public class MainPageChromeTest {
 
         mainPage = new MainPage();
         newsPage = new NewsPage();
-        driver = DriverChrome.getInstance();
+//        driver = DriverChrome.getInstance();
     }
 
     @Test
